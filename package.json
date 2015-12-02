@@ -1,0 +1,30 @@
+{
+  "name": "sequelize-migrate",
+  "version": "1.0.2",
+  "description": "Sequelize Migration Tool",
+  "main": "index.js",
+  "bin": {
+    "sequelize-migrate": "./cli"
+  },
+  "scripts": {
+    "test": "node ./tests",
+    "prepush": "jshint . && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/liamoehlman/sequelize-migrate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/liamoehlman/sequelize-migrate/issues"
+  },
+  "homepage": "https://github.com/liamoehlman/sequelize-migrate",
+  "devDependencies": {},
+  "dependencies": {
+    "abbott": "^1.1.3",
+    "command-line-args": "^2.1.0",
+    "fs-extra": "^0.26.2",
+    "kgo": "^3.1.2",
+    "mr-potato-head": "^1.0.0",
+    "umzug": "^1.6.0"
+  }
+}

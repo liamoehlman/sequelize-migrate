@@ -1,0 +1,16 @@
+{
+    "node": true,
+
+    "curly": true,
+    "latedef": "nofunc",
+    "quotmark": true,
+    "undef": true,
+    "unused": true,
+    "trailing": true,
+    "eqnull": true,
+    "eqeqeq": true,
+    "predef": [
+        "ArrayBuffer",
+        "Promise"
+    ]
+}
