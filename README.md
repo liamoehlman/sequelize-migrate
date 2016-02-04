@@ -3,12 +3,15 @@ Standardised sequelize migration wrapper, takes a persistence.initialise functio
 
 # Usage
 - Command line
+
+``` javascript
+cd my-cool-project/migrations && sequelize-migrate -u
+cd my-cool-project/migrations && sequelize-migrate -c my-cool-new-migration
 ```
-cd my-cool-project/migrations && ./migrate -u
-cd my-cool-project/migrations && ./migrate -c my-cool-new-migration
-```
+
 - Programatically
-```
+
+``` javascript
 var migrate = require('sequelize-migrate');
 
 migrate(

@@ -66,15 +66,20 @@ function migrationCallback(error, migrations) {
 
 function parseOptions() {
     var options = cli.parse(),
-        persistence = options.persistence ? require(options.persistence) : require(path.join(process.cwd(), '../server/persistence')),
-        config = options.config ? require(options.config) : require(path.join(process.cwd(), './config')),
-        migrations = options.migrations ? options.migrations : path.join(process.cwd(), './migrations'),
-        migrate = require('./index');
+        migrations = options.migrations ? options.migrations : path.join(process.cwd(), './migrations');
 
     if ((!options.up && !options.down && !options.create) ||
         (options.up && options.down) || options.help) {
         return showUsage();
     }
+
+    if (options.create) {
+        return createMigration(options.create, migrations);
+    }
+
+    var persistence = options.persistence ? require(options.persistence) : require(path.join(process.cwd(), '../server/persistence')),
+        config = options.config ? require(options.config) : require(path.join(process.cwd(), './config')),
+        migrate = require('./index');
 
     if (options.up) {
         return migrate(persistence, config, 'up', migrations, options.to, migrationCallback);
@@ -82,10 +87,6 @@ function parseOptions() {
 
     if (options.down) {
         return migrate(persistence, config, 'down', migrations, options.to, migrationCallback);
-    }
-
-    if (options.create) {
-        return createMigration(options.create, migrations);
     }
 }
 
