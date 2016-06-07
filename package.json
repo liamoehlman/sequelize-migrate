@@ -4,7 +4,7 @@
   "description": "Sequelize Migration Tool",
   "main": "index.js",
   "bin": {
-    "sequelize-migrate": "./cli"
+    "sequelize-migrate": "./cli.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
