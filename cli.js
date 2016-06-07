@@ -49,7 +49,7 @@ function migrationCallback(error, migrations) {
         process.exit(1);
     }
 
-    if (migrations.length > 0) {
+    if (migrations && migrations.length > 0) {
         console.log('Executed migrations: ', migrations.length);
         migrations.forEach(
             function (migration) {
