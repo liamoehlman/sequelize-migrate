@@ -14,7 +14,7 @@ function migrate(persistence, config, action, migrationPath, migration, callback
                     sequelize.Sequelize
                 ]
             }
-        });
+        }).on('migrating', (name) => console.log('Running -->', name));
 
     var runMigration = require('./migrate')(umzug, config);
 
