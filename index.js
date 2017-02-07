@@ -1,5 +1,9 @@
 var Umzug = require('umzug');
 
+function logMigrationName(name) {
+    console.log('Running -->', name);
+}
+
 function migrate(persistence, config, action, migrationPath, migration, callback) {
     var sequelize = persistence.createConnection(),
         umzug = new Umzug({
@@ -14,7 +18,7 @@ function migrate(persistence, config, action, migrationPath, migration, callback
                     sequelize.Sequelize
                 ]
             }
-        });
+        }).on('migrating', logMigrationName);
 
     var runMigration = require('./migrate')(umzug, config);
 
