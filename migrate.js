@@ -1,16 +1,18 @@
-var mrPotatoHead = require('mr-potato-head'),
-    abbott = require('abbott'),
-    kgo = require('kgo');
+const mrPotatoHead = require('mr-potato-head');
+const abbott = require('abbott');
+const kgo = require('kgo');
 
-module.exports = function(umzug, config){
-    var locking = mrPotatoHead(config);
+module.exports = function(umzug, config) {
+    config.dialect = 'mysql';
+
+    const locking = mrPotatoHead(config);
 
     function migrate(to, action, callback) {
-        var migrateTo;
+        let migrateTo;
 
         if (to) {
             migrateTo = {
-                to: to
+                to,
             };
         }
 
@@ -18,13 +20,13 @@ module.exports = function(umzug, config){
             return callback(new Error('No such action'));
         }
 
-        kgo
-        ('lock', locking.lock)
-        ('migrate', ['!lock'], abbott(umzug[action](migrateTo)))
-        ('unlock', ['!migrate'], locking.close)
-        (['*', '!unlock'], function(error) {
+        kgo('lock', locking.lock)('migrate', ['!lock'], abbott(umzug[action](migrateTo)))(
+            'unlock',
+            ['!migrate'],
+            locking.close,
+        )(['*', '!unlock'], error => {
             if (error) {
-                console.log('Error running migrations, exiting ' + error);
+                console.log(`Error running migrations, exiting ${error}`);
                 process.exit(1);
             }
 
