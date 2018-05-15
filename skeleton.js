@@ -7,5 +7,5 @@ module.exports = {
     down: function (queryInterface, Sequelize) {
 
         // Undo the up things
-    }
+    },
 };

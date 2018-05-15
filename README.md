@@ -1,10 +1,10 @@
 # sequelize-migrate
 Standardised sequelize migration wrapper, takes a persistence.initialise function and a config object
 
-# Usage
+## Usage
 - Command line
 
-``` javascript
+``` bash
 cd my-cool-project/migrations && sequelize-migrate -u
 cd my-cool-project/migrations && sequelize-migrate -c my-cool-new-migration
 ```
@@ -12,7 +12,7 @@ cd my-cool-project/migrations && sequelize-migrate -c my-cool-new-migration
 - Programatically
 
 ``` javascript
-var migrate = require('sequelize-migrate');
+const migrate = require('sequelize-migrate');
 
 migrate(
     persistence, // persistence object with .initialise and .sequelise
