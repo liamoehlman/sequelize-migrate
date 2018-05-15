@@ -24,7 +24,7 @@
     "command-line-usage": "^5.0.5",
     "fs-extra": "^6.0.1",
     "kgo": "^4.0.3",
-    "mr-potato-head": "^2.0.1",
+    "mr-potato-head": "^3.0.0",
     "umzug": "^2.1.0"
   },
   "keywords": [
