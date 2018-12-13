@@ -1,6 +1,6 @@
 {
   "name": "sequelize-migrate",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Sequelize Migration Tool",
   "main": "index.js",
   "bin": {
