@@ -20,11 +20,11 @@ module.exports = function(umzug, config) {
             return callback(new Error('No such action'));
         }
 
-        kgo('lock', locking.lock)('migrate', ['!lock'], abbott(umzug[action](migrateTo)))(
-            'unlock',
-            ['!migrate'],
-            locking.close,
-        )(['*', '!unlock'], error => {
+        kgo
+        ('lock', locking.lock)
+        ('migrate', ['!lock'], abbott(umzug[action](migrateTo)))
+        ('unlock', ['!migrate'], locking.close, )
+        (['*', '!unlock'], error => {
             if (error) {
                 console.log(`Error running migrations, exiting ${error}`);
                 process.exit(1);
