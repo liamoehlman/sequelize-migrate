@@ -24,7 +24,7 @@
     "command-line-usage": "^5.0.5",
     "fs-extra": "^7.0.1",
     "kgo": "^4.0.3",
-    "mr-potato-head": "^4.0.0",
+    "mr-potato-head": "^4.0.1",
     "mysql2": "^1.6.4",
     "umzug": "^2.2.0"
   },
